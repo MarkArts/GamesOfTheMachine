@@ -14,7 +14,7 @@ namespace UnityStandardAssets._2D
 
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .05f; // Radius of the overlap circle to determine if grounded
-        private bool m_Grounded;            // Whether or not the player is grounded.
+        public bool m_Grounded;            // Whether or not the player is grounded.
         private Transform m_CeilingCheck;   // A position marking where to check for ceilings
         const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Animator m_Anim;            // Reference to the player's animator component.
@@ -22,9 +22,17 @@ namespace UnityStandardAssets._2D
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
 		//input
-		private bool jump = false;
-		private bool crouch = false;
-		private float speedX = 0f;
+		public InputComposite inputs = new InputComposite();
+		public bool jump { get; set; }
+		public bool crouch { get; set; }
+		public float speedX { get; set; }
+
+		void Start(){
+			inputs.addInput (new JumpInput ());
+			inputs.addInput (new WalkRightInput ());
+	//		inputs.addInput (new WalkControlInput ());
+			inputs.addInput (new CrouchInput ());
+		}
 
         private void Awake()
         {
@@ -46,7 +54,7 @@ namespace UnityStandardAssets._2D
 			// Set the vertical animation
 			m_Anim.SetFloat("vSpeed", Gravity.gravitize(m_Rigidbody2D.velocity).y);
 
-			input ();
+			inputs.input (this);
 
 			// If crouching and trying to stand up, check to see if the character can stand up
 			if (!crouch && m_Anim.GetBool("Crouch") && !canStand())
@@ -88,18 +96,7 @@ namespace UnityStandardAssets._2D
 		}
 
 		private bool canStand(){
-			return Physics2D.OverlapCircle (m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround);
-		}
-
-		private void input(){
-			if (!jump && m_Grounded)
-			{
-				// Read the jump input in Update so button presses aren't missed.
-				jump = CrossPlatformInputManager.GetButtonDown("Jump");
-			}
-
-			crouch = Input.GetKey(KeyCode.LeftControl);
-			speedX = CrossPlatformInputManager.GetAxis("Horizontal");
+			return !Physics2D.OverlapCircle (m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround);
 		}
 
 		private bool isGrounded(){
