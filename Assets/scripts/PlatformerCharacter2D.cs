@@ -66,7 +66,7 @@ namespace UnityStandardAssets._2D
 				m_Anim.SetFloat("Speed", Mathf.Abs(speedX));
 				
 				// Move the character
-				m_Rigidbody2D.velocity = Gravity.gravitize(new Vector2((speedX*m_MaxSpeed)*Time.deltaTime, m_Rigidbody2D.velocity.y));
+				m_Rigidbody2D.velocity = Gravity.gravitize(new Vector2((speedX*m_MaxSpeed)*Time.deltaTime, 0f));
 				
 				// if the moving direction of the character changes
 				if ( (speedX > 0 && !m_FacingRight) || (speedX < 0 && m_FacingRight) )
@@ -103,6 +103,11 @@ namespace UnityStandardAssets._2D
 		}
 
 		private bool isGrounded(){
+			// we can never be grounded if we are moving upwards
+			if (Math.Round(Gravity.gravitize (m_Rigidbody2D.velocity).y, 2) > 0){
+				return false;
+			}
+
 			Collider2D[] colliders = Physics2D.OverlapCircleAll (m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
 			for (int i = 0; i < colliders.Length; i++) {
 				if (colliders [i].gameObject != gameObject)
