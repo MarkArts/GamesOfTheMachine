@@ -29,9 +29,10 @@ namespace UnityStandardAssets._2D
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
-
         private void FixedUpdate()
         {
+			transform.rotation = Quaternion.AngleAxis (Gravity.angle(), new Vector3 (0, 0, 1));
+
             m_Grounded = false;
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
@@ -46,12 +47,13 @@ namespace UnityStandardAssets._2D
             m_Anim.SetBool("Ground", m_Grounded);
 
             // Set the vertical animation
-            m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+            m_Anim.SetFloat("vSpeed", Gravity.gravitize(m_Rigidbody2D.velocity).y);
         }
 
 
         public void Move(float move, bool crouch, bool jump)
         {
+
             // If crouching, check to see if the character can stand up
             if (!crouch && m_Anim.GetBool("Crouch"))
             {
@@ -66,7 +68,7 @@ namespace UnityStandardAssets._2D
             m_Anim.SetBool("Crouch", crouch);
 
             //only control the player if grounded or airControl is turned on
-            if (m_Grounded || m_AirControl)
+            if (m_Grounded)
             {
                 // Reduce the speed if crouching by the crouchSpeed multiplier
                 move = (crouch ? move*m_CrouchSpeed : move);
@@ -75,7 +77,7 @@ namespace UnityStandardAssets._2D
                 m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
                 // Move the character
-                m_Rigidbody2D.velocity = new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y);
+                m_Rigidbody2D.velocity = Gravity.gravitize(new Vector2(move*m_MaxSpeed, m_Rigidbody2D.velocity.y));
 
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight)
@@ -88,15 +90,16 @@ namespace UnityStandardAssets._2D
                 {
                     // ... flip the player.
                     Flip();
-                }
+                } 
             }
+
             // If the player should jump...
             if (m_Grounded && jump && m_Anim.GetBool("Ground"))
             {
                 // Add a vertical force to the player.
                 m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
-                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                m_Rigidbody2D.AddForce(Gravity.gravitize(new Vector2(0f, m_JumpForce)));
             }
         }
 
