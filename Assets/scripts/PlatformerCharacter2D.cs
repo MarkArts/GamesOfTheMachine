@@ -30,8 +30,8 @@ namespace UnityStandardAssets._2D
 		void Start(){
 			inputs.addInput (new JumpInput ());
 			inputs.addInput (new WalkRightInput ());
-	//		inputs.addInput (new WalkControlInput ());
-			inputs.addInput (new CrouchInput ());
+		//	inputs.addInput (new WalkControlInput ());
+		//	inputs.addInput (new CrouchInput ());
 		}
 
         private void Awake()

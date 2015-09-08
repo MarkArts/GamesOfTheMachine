@@ -610,6 +610,7 @@ GameObject:
   - 81: {fileID: 625279779}
   - 114: {fileID: 625279784}
   - 132: {fileID: 625279786}
+  - 114: {fileID: 625279785}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -658,7 +659,7 @@ Camera:
   far clip plane: 1000
   field of view: 112
   orthographic: 1
-  orthographic size: 7.39604378
+  orthographic size: 7.14608908
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -700,6 +701,17 @@ MonoBehaviour:
   lookAheadFactor: 0
   lookAheadReturnSpeed: 1
   lookAheadMoveThreshold: 0
+--- !u!114 &625279785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 625279778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bbf57ec543cee42a5aa0ec2dd9e457, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!132 &625279786
 GUIText:
   m_ObjectHideFlags: 0
@@ -708,15 +720,15 @@ GUIText:
   m_GameObject: {fileID: 625279778}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: 
-  m_Anchor: 0
-  m_Alignment: 0
-  m_PixelOffset: {x: 0, y: 0}
+  m_Text: lol
+  m_Anchor: 4
+  m_Alignment: 1
+  m_PixelOffset: {x: 20, y: 20}
   m_LineSpacing: 1
   m_TabSize: 4
-  m_Font: {fileID: 0}
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Material: {fileID: 0}
-  m_FontSize: 0
+  m_FontSize: 12
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2

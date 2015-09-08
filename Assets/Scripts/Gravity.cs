@@ -7,6 +7,7 @@ public class Gravity : MonoBehaviour {
 	void Start () {
         Debug.Log("started gravity");
 		setGravity (Vector2.down * 9.81f);
+		//Screen.orientation = ScreenOrientation.Landscape;
 	}
 
 	void setGravity(Vector2 grav){
@@ -27,22 +28,24 @@ public class Gravity : MonoBehaviour {
 	void Update () {
 		
 		#if UNITY_IPHONE || UNITY_ANDROID
-			switch(Screen.orientation){
-				case ScreenOrientation.LandscapeRight:
-					rotateWorld(Rotations.up);
-					break;
-				case ScreenOrientation.PortraitUpsideDown:
-					rotateWorld(Rotations.left);
-					break;
-				case ScreenOrientation.Landscape:
-					rotateWorld(Rotations.down);
-					break;
-				case ScreenOrientation.Portrait:
-					rotateWorld(Rotations.right);
-					break;
-				default:
-					break;
+			float x = Input.acceleration.x;
+		Debug.Log (x);
+
+		GUI.Label(new Rect(10,10,100,100), x.ToString());
+
+			if((x > 315 && x <= 360) || (x >=0 && x <= 45)){
+				setGravity(Vector2.down * 9.81f);
 			}
+			if(x > 45 && x <= 135){
+				setGravity(Vector2.right * 9.81f);
+			}
+			if(x > 135  && x <= 225){
+				setGravity(Vector2.down * 9.81f);
+			}
+			if(x > 225 && x <= 315){
+				setGravity(Vector2.up * 9.81f);
+			}
+		
 		#else
 			if (Input.GetKeyUp (KeyCode.I)) {
 				setGravity (Vector2.up * 9.81f);
@@ -61,3 +64,4 @@ public class Gravity : MonoBehaviour {
 		
 	}
 }
+
