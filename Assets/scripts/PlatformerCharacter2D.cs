@@ -65,19 +65,19 @@ namespace UnityStandardAssets._2D
 			m_Anim.SetBool("Crouch", crouch);
 
 			// Reduce the speed if crouching by the crouchSpeed multiplier
-			speedX = (crouch ? speedX*m_CrouchSpeed : speedX);
+			float modSpeedX = (crouch ? speedX*m_CrouchSpeed : speedX);
 		
 			//only control the player if grounded or airControl is turned on
 			if (m_Grounded)
 			{				
 				// The Speed animator parameter is set to the absolute value of the horizontal input.
-				m_Anim.SetFloat("Speed", Mathf.Abs(speedX));
+				m_Anim.SetFloat("Speed", Mathf.Abs(modSpeedX));
 				
 				// Move the character
-				m_Rigidbody2D.velocity = Gravity.gravitize(new Vector2((speedX*m_MaxSpeed)*Time.deltaTime, 0f));
+				m_Rigidbody2D.velocity = Gravity.gravitize(new Vector2((modSpeedX*m_MaxSpeed), 0f));
 				
 				// if the moving direction of the character changes
-				if ( (speedX > 0 && !m_FacingRight) || (speedX < 0 && m_FacingRight) )
+				if ( (modSpeedX > 0 && !m_FacingRight) || (modSpeedX < 0 && m_FacingRight) )
 				{
 					Flip();
 				}
