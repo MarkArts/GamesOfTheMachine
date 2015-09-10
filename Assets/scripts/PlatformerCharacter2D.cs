@@ -24,6 +24,7 @@ namespace UnityStandardAssets._2D
 		//input
 		public InputComposite inputs = new InputComposite();
 		public bool jump { get; set; }
+		public bool jumping { get; private set; }
 		public bool crouch { get; set; }
 		public float speedX { get; set; }
 
@@ -83,10 +84,15 @@ namespace UnityStandardAssets._2D
 				}
 			}
 
-			if (m_Grounded && jump)
+			if (Math.Round(Gravity.gravitize (m_Rigidbody2D.velocity).y, 2) > 0) {
+				jumping = false;
+			}
+
+			if (m_Grounded && jump && !jumping)
 			{
 				// Add a vertical force to the player.
 				m_Grounded = false;
+				jumping = true;
 				m_Anim.SetBool("Ground", false);
 				m_Rigidbody2D.AddForce(Gravity.gravitize(new Vector2(0f, m_JumpForce)));
 			}
