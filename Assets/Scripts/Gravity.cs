@@ -7,7 +7,13 @@ public class Gravity : MonoBehaviour {
 	void Start () {
         Debug.Log("started gravity");
 		setGravity (Vector2.down * 9.81f);
-		//Screen.orientation = ScreenOrientation.Landscape;
+		Screen.orientation = ScreenOrientation.Landscape;
+	}
+
+	void OnGUI() {
+		//GUI.Label (new Rect (10, 10, 500, 20), "Acceleration: " + Input.acceleration.x.ToString () + " : " + Input.acceleration.y.ToString ());
+		//GUI.Label (new Rect (10, 30, 500, 20), "Gyro RotationRate: " + Input.gyro.rotationRate.x.ToString () + " : " + Input.gyro.rotationRate.y.ToString ());	
+		//GUI.Label (new Rect (10, 50, 500, 20), "Gyro userAcceleration: " + Input.gyro.userAcceleration.x.ToString () + " : " + Input.gyro.userAcceleration.y.ToString ());
 	}
 
 	void setGravity(Vector2 grav){
@@ -29,23 +35,26 @@ public class Gravity : MonoBehaviour {
 		
 		#if UNITY_IPHONE || UNITY_ANDROID
 			float x = Input.acceleration.x;
-		Debug.Log (x);
+			float y = Input.acceleration.y;
 
-		GUI.Label(new Rect(10,10,100,100), x.ToString());
-
-			if((x > 315 && x <= 360) || (x >=0 && x <= 45)){
-				setGravity(Vector2.down * 9.81f);
+			if(Mathf.Abs(x) < 0.5f){
+				// landscape
+				if(y > 0){
+					//reverse
+					setGravity(Vector3.up*9.81f);
+				}else{
+					setGravity(Vector3.down*9.81f);
+				}
+			}else{
+				// portrait
+				if(x < 0){
+					// reverse
+				setGravity(Vector3.left*9.81f);
+				}else{
+					setGravity(Vector3.right*9.81f);
+				}
 			}
-			if(x > 45 && x <= 135){
-				setGravity(Vector2.right * 9.81f);
-			}
-			if(x > 135  && x <= 225){
-				setGravity(Vector2.down * 9.81f);
-			}
-			if(x > 225 && x <= 315){
-				setGravity(Vector2.up * 9.81f);
-			}
-		
+	
 		#else
 			if (Input.GetKeyUp (KeyCode.I)) {
 				setGravity (Vector2.up * 9.81f);
