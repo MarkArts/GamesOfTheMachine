@@ -12,7 +12,6 @@ GameObject:
   - 95: {fileID: 9543608}
   - 61: {fileID: 6199314}
   - 114: {fileID: 11408032}
-  - 114: {fileID: 11473994}
   m_Layer: 0
   m_Name: fire
   m_TagString: Untagged
@@ -40,7 +39,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 194046}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: .0130162239, y: .0469839573}
   serializedVersion: 2
@@ -75,17 +74,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTime: 5
   offTime: 0
---- !u!114 &11473994
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 194046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e053b0a94752146e79954ce4df1b5565, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &21251004
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -118,11 +106,7 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
+    m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 194046}
