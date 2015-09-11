@@ -59,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 175776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .733296394, y: .275489688, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 450778}
   - {fileID: 490830}
@@ -159,14 +159,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08f91df3bd212f429df17f53ce2f364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxSpeed: 2
-  m_JumpForce: 400
+  m_MaxSpeed: 5
+  m_JumpForce: 600
   m_CrouchSpeed: .25
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Grounded: 1
   canControl: 1
+  moveable: 1
 --- !u!212 &21239710
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -199,7 +200,23 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_JumpForce
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_MaxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 175776}
