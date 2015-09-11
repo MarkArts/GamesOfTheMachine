@@ -49,7 +49,7 @@ public class IntroText : MonoBehaviour {
 	}
 	
 	void notLeft(){
-		m_text.text = "Good thing you didnt turn your screen left thou";
+		m_text.text = "Good thing you didnt turn your screen left though";
 		Invoke ("doItAgain", 5f);
 	}
 	
