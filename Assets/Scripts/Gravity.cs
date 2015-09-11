@@ -3,6 +3,11 @@ using System.Collections;
 
 public class Gravity : MonoBehaviour {
 
+	public bool allowUp = true;
+	public bool allowRight = true;
+	public bool allowDown = true;
+	public bool allowLeft = true;
+
 	// Use this for initialization
 	void Start () {
         Debug.Log("started gravity");
@@ -39,33 +44,35 @@ public class Gravity : MonoBehaviour {
 
 			if(Mathf.Abs(x) < 0.5f){
 				// landscape
-				if(y > 0){
+				if(y > 0 && allowUp){
 					//reverse
 					setGravity(Vector3.up*9.81f);
-				}else{
+				}
+				if(y < 0 && allowDown){
 					setGravity(Vector3.down*9.81f);
 				}
 			}else{
 				// portrait
-				if(x < 0){
+				if(x < 0 && allowLeft){
 					// reverse
 				setGravity(Vector3.left*9.81f);
-				}else{
+				}
+				if(x > 0 && allowRight){
 					setGravity(Vector3.right*9.81f);
 				}
 			}
 	
 		#else
-			if (Input.GetKeyUp (KeyCode.I)) {
+			if (Input.GetKeyUp (KeyCode.I) && allowUp) {
 				setGravity (Vector2.up * 9.81f);
 			}
-			if (Input.GetKeyUp (KeyCode.L)) {
+			if (Input.GetKeyUp (KeyCode.L) && allowRight) {
 				setGravity (Vector2.right * 9.81f);
 			}
-			if (Input.GetKeyUp (KeyCode.K)) {
+			if (Input.GetKeyUp (KeyCode.K) && allowDown) {
 				setGravity (Vector2.down * 9.81f);
 			}
-			if (Input.GetKeyUp (KeyCode.J)) {
+			if (Input.GetKeyUp (KeyCode.J) && allowLeft) {
 				setGravity (Vector2.left * 9.81f);
 			}
 		#endif
