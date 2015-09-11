@@ -72,8 +72,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce1ef25619978b479bd447ea12d7aba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onTime: 5
-  offTime: 0
+  onTime: 2
+  offTime: 3
 --- !u!212 &21251004
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -106,7 +106,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: offTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 194046}
