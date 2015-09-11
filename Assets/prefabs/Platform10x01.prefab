@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 487148}
   m_Layer: 0
-  m_Name: Platform16x01 (33)
+  m_Name: Platform10x01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
