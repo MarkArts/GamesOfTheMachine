@@ -22,6 +22,7 @@ namespace UnityStandardAssets._2D
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
 		public bool canControl;
+		public bool moveable = true;
 
 		//input
 		public InputComposite inputs = new InputComposite();
@@ -31,13 +32,15 @@ namespace UnityStandardAssets._2D
 		public float speedX { get; set; }
 
 		void Start(){
-			inputs.addInput (new JumpInput ());
-			if (canControl) {
-				inputs.addInput (new WalkControlInput ());
-			} else {
-				inputs.addInput (new WalkRightInput ());
+			if (moveable) {
+				inputs.addInput (new JumpInput ());
+				if (canControl) {
+					inputs.addInput (new WalkControlInput ());
+				} else {
+					inputs.addInput (new WalkRightInput ());
+				}
+				//	inputs.addInput (new CrouchInput ());
 			}
-		//	inputs.addInput (new CrouchInput ());
 		}
 
         private void Awake()
