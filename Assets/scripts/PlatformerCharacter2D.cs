@@ -21,6 +21,8 @@ namespace UnityStandardAssets._2D
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
+		public bool canControl;
+
 		//input
 		public InputComposite inputs = new InputComposite();
 		public bool jump { get; set; }
@@ -30,8 +32,11 @@ namespace UnityStandardAssets._2D
 
 		void Start(){
 			inputs.addInput (new JumpInput ());
-			inputs.addInput (new WalkRightInput ());
-		//	inputs.addInput (new WalkControlInput ());
+			if (canControl) {
+				inputs.addInput (new WalkControlInput ());
+			} else {
+				inputs.addInput (new WalkRightInput ());
+			}
 		//	inputs.addInput (new CrouchInput ());
 		}
 
