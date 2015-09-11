@@ -1,6 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum Orientation {
+	up,
+	right,
+	down,
+	left
+}
+
 public class Gravity : MonoBehaviour {
 
 	public bool allowUp = true;
@@ -21,8 +28,38 @@ public class Gravity : MonoBehaviour {
 		//GUI.Label (new Rect (10, 50, 500, 20), "Gyro userAcceleration: " + Input.gyro.userAcceleration.x.ToString () + " : " + Input.gyro.userAcceleration.y.ToString ());
 	}
 
-	void setGravity(Vector2 grav){
+	public void setGravity(Vector2 grav){
 		Physics2D.gravity = grav;
+	}
+
+	public static Orientation getOrientation(){
+		#if UNITY_IPHONE || UNITY_ANDROID
+			float x = Input.acceleration.x;
+			float y = Input.acceleration.y;
+
+			if(Mathf.Abs(x) < 0.5f){
+				// landscape
+				if(y > 0){
+					//reverse
+					return Orientation.up;
+				}
+				if(y < 0){
+					return Orientation.down;
+				}
+			}else{
+				// portrait
+				if(x < 0){
+					// reverse
+					return Orientation.left;
+				}
+				if(x > 0){
+					return Orientation.right;
+				}
+			}
+	
+		#endif
+
+		return Orientation.down;
 	}
 
 	public static float angle(){
@@ -39,27 +76,19 @@ public class Gravity : MonoBehaviour {
 	void Update () {
 		
 		#if UNITY_IPHONE || UNITY_ANDROID
-			float x = Input.acceleration.x;
-			float y = Input.acceleration.y;
+			Orientation rot = Gravity.getOrientation();
 
-			if(Mathf.Abs(x) < 0.5f){
-				// landscape
-				if(y > 0 && allowUp){
-					//reverse
-					setGravity(Vector3.up*9.81f);
-				}
-				if(y < 0 && allowDown){
-					setGravity(Vector3.down*9.81f);
-				}
-			}else{
-				// portrait
-				if(x < 0 && allowLeft){
-					// reverse
-				setGravity(Vector3.left*9.81f);
-				}
-				if(x > 0 && allowRight){
-					setGravity(Vector3.right*9.81f);
-				}
+			if(rot == Orientation.up && allowUp){
+				setGravity (Vector2.up * 9.81f);
+			}
+			if(rot == Orientation.right && allowRight){
+				setGravity (Vector2.right * 9.81f);
+			}
+			if(rot == Orientation.down && allowDown){
+				setGravity (Vector2.down * 9.81f);
+			}
+			if(rot == Orientation.left && allowLeft){
+				setGravity (Vector2.left * 9.81f);
 			}
 	
 		#else
