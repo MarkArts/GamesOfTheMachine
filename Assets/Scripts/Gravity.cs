@@ -79,16 +79,16 @@ public class Gravity : MonoBehaviour {
 			Orientation rot = Gravity.getOrientation();
 
 			if(rot == Orientation.up && allowUp){
-				setGravity (Vector2.up * 9.81f);
-			}
-			if(rot == Orientation.right && allowRight){
-				setGravity (Vector2.right * 9.81f);
-			}
-			if(rot == Orientation.down && allowDown){
 				setGravity (Vector2.down * 9.81f);
 			}
-			if(rot == Orientation.left && allowLeft){
+			if(rot == Orientation.right && allowRight){
 				setGravity (Vector2.left * 9.81f);
+			}
+			if(rot == Orientation.down && allowDown){
+				setGravity (Vector2.up * 9.81f);
+			}
+			if(rot == Orientation.left && allowLeft){
+				setGravity (Vector2.right * 9.81f);
 			}
 	
 		#else
