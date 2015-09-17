@@ -32,15 +32,13 @@ namespace UnityStandardAssets._2D
 		public float speedX { get; set; }
 
 		void Start(){
-			if (moveable) {
-				inputs.addInput (new JumpInput ());
-				if (canControl) {
-					inputs.addInput (new WalkControlInput ());
-				} else {
-					inputs.addInput (new WalkRightInput ());
-				}
-				//	inputs.addInput (new CrouchInput ());
+			inputs.addInput (new JumpInput ());
+			if (canControl) {
+				inputs.addInput (new WalkControlInput ());
+			} else {
+				inputs.addInput (new WalkRightInput ());
 			}
+			//	inputs.addInput (new CrouchInput ());
 		}
 
         private void Awake()
@@ -63,7 +61,9 @@ namespace UnityStandardAssets._2D
 			// Set the vertical animation
 			m_Anim.SetFloat("vSpeed", Gravity.gravitize(m_Rigidbody2D.velocity).y);
 
-			inputs.input (this);
+			if (moveable) {
+				inputs.input (this);
+			}
 
 			// If crouching and trying to stand up, check to see if the character can stand up
 			if (!crouch && m_Anim.GetBool("Crouch") && !canStand())
