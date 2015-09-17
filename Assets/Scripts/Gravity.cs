@@ -23,9 +23,9 @@ public class Gravity : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		//GUI.Label (new Rect (10, 10, 500, 20), "Acceleration: " + Input.acceleration.x.ToString () + " : " + Input.acceleration.y.ToString ());
-		//GUI.Label (new Rect (10, 30, 500, 20), "Gyro RotationRate: " + Input.gyro.rotationRate.x.ToString () + " : " + Input.gyro.rotationRate.y.ToString ());	
-		//GUI.Label (new Rect (10, 50, 500, 20), "Gyro userAcceleration: " + Input.gyro.userAcceleration.x.ToString () + " : " + Input.gyro.userAcceleration.y.ToString ());
+		GUI.Label (new Rect (10, 10, 500, 20), "Acceleration: " + Input.acceleration.x.ToString () + " : " + Input.acceleration.y.ToString ());
+		GUI.Label (new Rect (10, 30, 500, 20), "Gyro RotationRate: " + Input.gyro.rotationRate.x.ToString () + " : " + Input.gyro.rotationRate.y.ToString ());	
+		GUI.Label (new Rect (10, 50, 500, 20), "Gyro userAcceleration: " + Input.gyro.userAcceleration.x.ToString () + " : " + Input.gyro.userAcceleration.y.ToString ());
 	}
 
 	public void setGravity(Vector2 grav){
@@ -78,11 +78,11 @@ public class Gravity : MonoBehaviour {
 				case Orientation.down:
 					return x;
 				case Orientation.up:
-					return x;
+					return -x;
 				case Orientation.right:
-					return 1 - Mathf.Abs(x);
+					return x;
 				case Orientation.left:
-					return 1 - Mathf.Abs(x);
+					return -x;
 				default:
 					return 0f;
 			}
