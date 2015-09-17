@@ -73,6 +73,7 @@ public class Gravity : MonoBehaviour {
 	public static float tiltAngle(){
 		#if UNITY_IPHONE || UNITY_ANDROID
 			float x = Input.acceleration.x;
+			float y = Input.acceleration.y;
 
 			switch(Gravity.getOrientation()){
 				case Orientation.down:
@@ -80,9 +81,9 @@ public class Gravity : MonoBehaviour {
 				case Orientation.up:
 					return -x;
 				case Orientation.right:
-					return x;
+					return -y;
 				case Orientation.left:
-					return -x;
+					return y;
 				default:
 					return 0f;
 			}
