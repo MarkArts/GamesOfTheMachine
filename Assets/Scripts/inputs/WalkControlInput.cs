@@ -6,7 +6,12 @@ namespace UnityStandardAssets._2D
 {
 	public class WalkControlInput : InputBehaviour {
 		public void input(PlatformerCharacter2D cha){
-			cha.speedX = CrossPlatformInputManager.GetAxis("Horizontal");
+
+			#if UNITY_IPHONE || UNITY_ANDROID
+				cha.speedX = Input.acceleration.x;
+			#else
+				cha.speedX = CrossPlatformInputManager.GetAxis("Horizontal");
+			#endif
 		}
 	}
 }
