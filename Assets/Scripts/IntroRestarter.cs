@@ -18,20 +18,29 @@ public class IntroRestarter : MonoBehaviour {
 	{
 		if (other.tag == "Player" && !timeOut)
 		{
-			deads += 1;
-			gravity.setGravity (Vector2.down * 9.81f);
-			gravity.allowRight = false;
-			
-			other.transform.position = new Vector3(0.243f, -2.508f,0);
-			other.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-			
-			if (deads == 1) {
-				introText.great();
-			}else{
-				introText.andAgain();
-			}
+			StartCoroutine(reset(other));
 
-			setTimeOut(1f);
+			other.GetComponent<Rigidbody2D>().isKinematic = true;
+
+			setTimeOut(2f);
+		}
+	}
+
+	IEnumerator reset(Collider2D other){
+		yield return new WaitForSeconds (1f);
+
+		deads += 1;
+		gravity.setGravity (Vector2.down * 9.81f);
+		gravity.allowRight = false;
+		
+		other.transform.position = new Vector3(0.243f, -2.508f,0);
+		other.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+		other.GetComponent<Rigidbody2D>().isKinematic = false;
+
+		if (deads == 1) {
+			introText.great();
+		}else{
+			introText.andAgain();
 		}
 	}
 

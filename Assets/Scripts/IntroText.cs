@@ -29,7 +29,7 @@ public class IntroText : MonoBehaviour {
 	
 	void timIsYourBestFreind(){
 		m_text.text = "Tim is your very best friend";
-		Invoke ("andYouLoveHim", 4f);
+		Invoke ("nowTurn", 4f);
 	}
 	
 	void andYouLoveHim(){

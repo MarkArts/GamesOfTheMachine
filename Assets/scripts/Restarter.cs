@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections;
 
 namespace UnityStandardAssets._2D
 {
@@ -9,8 +10,14 @@ namespace UnityStandardAssets._2D
         {
             if (other.tag == "Player")
             {
-                Application.LoadLevel(Application.loadedLevelName);
+				other.GetComponent<Rigidbody2D>().isKinematic = true;
+				Invoke("reset", 1f);
             }
         }
+
+		void reset(Collider2D other){
+			Application.LoadLevel(Application.loadedLevelName);
+		}
+
     }
 }
