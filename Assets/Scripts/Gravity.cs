@@ -29,7 +29,11 @@ public class Gravity : MonoBehaviour {
 	}
 
 	public void setGravity(Vector2 grav){
+		if (Physics2D.gravity == grav)
+			return;
+
 		Physics2D.gravity = grav;
+		GameObject.FindObjectOfType<PlatformerCharacter2D> ().GetComponentInParent<Rigidbody2D> ().velocity = Vector2.zero;
 	}
 
 	public static Orientation getOrientation(){
