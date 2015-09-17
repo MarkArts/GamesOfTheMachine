@@ -66,6 +66,28 @@ public class Gravity : MonoBehaviour {
 		return (float)(Mathf.Atan2(Physics2D.gravity.x, Physics2D.gravity.y * -1) * ( 180 / Mathf.PI ));
 	}
 
+	public static float tiltAngle(){
+		#if UNITY_IPHONE || UNITY_ANDROID
+			float x = Input.acceleration.x;
+
+			switch(Gravity.getOrientation()){
+				case Orientation.down:
+					return x;
+				case Orientation.up:
+					return x;
+				case Orientation.right:
+					return 1 - Mathf.Abs(x);
+				case Orientation.left:
+					return 1 - Mathf.Abs(x);
+				default:
+					return 0f;
+			}
+
+		#else
+			return 0f;
+		#endif
+	}
+
 	public static Vector2 gravitize(Vector2 vect){
 		float ca = Mathf.Cos(Gravity.angle() * (Mathf.PI / 180));
 		float sa = Mathf.Sin(Gravity.angle() * (Mathf.PI / 180));

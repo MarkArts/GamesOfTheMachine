@@ -8,7 +8,7 @@ namespace UnityStandardAssets._2D
 		public void input(PlatformerCharacter2D cha){
 
 			#if UNITY_IPHONE || UNITY_ANDROID
-				cha.speedX = Input.acceleration.x;
+				cha.speedX = Gravity.tiltAngle();
 			#else
 				cha.speedX = CrossPlatformInputManager.GetAxis("Horizontal");
 			#endif
