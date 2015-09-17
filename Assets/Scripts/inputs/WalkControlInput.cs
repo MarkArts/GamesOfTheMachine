@@ -7,7 +7,7 @@ public class WalkControlInput : InputBehaviour {
 
 		#if UNITY_IPHONE || UNITY_ANDROID
 			float angle = Gravity.tiltAngle();
-			cha.speedX = (angle > 0.05f || angle < 0.05f) ? 0f : angle*2;
+			cha.speedX = (angle > 0.05f || angle < -0.05f) ? angle*2 : 0f;
 		#else
 			cha.speedX = CrossPlatformInputManager.GetAxis("Horizontal");
 		#endif
