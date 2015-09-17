@@ -11,11 +11,12 @@ namespace UnityStandardAssets._2D
             if (other.tag == "Player")
             {
 				other.GetComponent<Rigidbody2D>().isKinematic = true;
+				other.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 				Invoke("reset", 1f);
             }
         }
 
-		void reset(Collider2D other){
+		void reset(){
 			Application.LoadLevel(Application.loadedLevelName);
 		}
 
