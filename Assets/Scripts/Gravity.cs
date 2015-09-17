@@ -81,9 +81,9 @@ public class Gravity : MonoBehaviour {
 				case Orientation.up:
 					return -x;
 				case Orientation.right:
-					return -y;
-				case Orientation.left:
 					return y;
+				case Orientation.left:
+					return -y;
 				default:
 					return 0f;
 			}
