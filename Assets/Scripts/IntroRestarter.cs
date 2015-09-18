@@ -32,6 +32,7 @@ public class IntroRestarter : MonoBehaviour {
 		deads += 1;
 		gravity.setGravity (Vector2.down * 9.81f);
 		gravity.allowRight = false;
+        gravity.allowLeft = false;
 		
 		other.transform.position = new Vector3(0.243f, -2.508f,0);
 		other.GetComponent<Rigidbody2D>().velocity = Vector2.zero;

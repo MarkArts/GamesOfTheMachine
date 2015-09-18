@@ -6,10 +6,16 @@ public class WalkControlInput : InputBehaviour {
 	public void input(PlatformerCharacter2D cha){
 
 		#if UNITY_IPHONE || UNITY_ANDROID
-			float angle = Gravity.tiltAngle();
-			cha.speedX = (angle > 0.05f || angle < -0.05f) ? angle*2 : 0f;
+		float angle = Gravity.tiltAngle();
+
+        if (angle > 0.1f)
+            cha.speedX = 1f;
+        else if (angle < -0.1f)
+            cha.speedX = -1f;
+        else
+            cha.speedX = 0f;
 		#else
-			cha.speedX = CrossPlatformInputManager.GetAxis("Horizontal");
+		cha.speedX = CrossPlatformInputManager.GetAxis("Horizontal");
 		#endif
 	}
 }
