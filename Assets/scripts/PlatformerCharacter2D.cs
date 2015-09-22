@@ -152,16 +152,22 @@ public class PlatformerCharacter2D : MonoBehaviour
 	private void onDeath(GameObject killer){
 		death = true;
 
+		GameObject blood = (GameObject) Instantiate (bloodSplat, transform.position, Quaternion.identity);
+
+		Vector2 v = m_Rigidbody2D.velocity;
+		if (v.magnitude > 4f) {
+			v = v.normalized * 4f;
+		}
+
+		blood.GetComponent<BloodParticles> ().initVelocity = v;
+
 		m_Rigidbody2D.isKinematic = true;
 		m_Rigidbody2D.velocity = Vector2.zero;
 		moveable = false;
 		speedX = 0f;
-
-		Instantiate (bloodSplat, transform.position, Quaternion.identity);
-
 		m_renderer.enabled = false;
 
-		Invoke("reset", 2f);
+		Invoke("reset", 4f);
 	}
 
 	void reset(){
