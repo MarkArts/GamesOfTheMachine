@@ -11,6 +11,8 @@ public class BloodParticles : MonoBehaviour {
 	public Vector2 initVelocity;
 	private bool inited;
 
+	[SerializeField] private LayerMask m_WhatIsGround; 
+
 	private void LateUpdate()
 	{
 		InitializeIfNeeded();
@@ -21,6 +23,12 @@ public class BloodParticles : MonoBehaviour {
 		// Change only the particles that are alive
 		for (int i = 0; i < numParticlesAlive; i++)
 		{
+
+			if(colliding(m_Particles[i])){
+				m_Particles[i].velocity = Vector3.zero;
+				continue;
+			};
+
 			Vector2 gravet = Gravity.gravitize(Vector2.down*m_mass);
 		
 			m_Particles[i].velocity += new Vector3(gravet.x, gravet.y, 0f);
@@ -40,6 +48,13 @@ public class BloodParticles : MonoBehaviour {
 		m_System.SetParticles(m_Particles, numParticlesAlive);
 	
 		inited = true;
+	}
+
+	bool colliding(ParticleSystem.Particle particle){
+		Vector3 worldPos = gameObject.transform.position + particle.position;
+		Collider2D[] colliders = Physics2D.OverlapCircleAll (new Vector2(worldPos.x, worldPos.y), particle.size,m_WhatIsGround);
+
+		return colliders.Length > 0;
 	}
 
 	void InitializeIfNeeded()
