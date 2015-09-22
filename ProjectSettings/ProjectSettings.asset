@@ -72,15 +72,15 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.Ludos.GamesOfTheMachine
-  bundleVersion: 1.2
+  bundleVersion: 1.2.1
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: ff0ea2b5b7e8a3942967a7af9f3559cb
-  AndroidBundleVersionCode: 3
-  AndroidMinSdkVersion: 21
+  AndroidBundleVersionCode: 4
+  AndroidMinSdkVersion: 16
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   apiCompatibilityLevel: 2
