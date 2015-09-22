@@ -166,6 +166,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Grounded: 1
+  bloodSplat: {fileID: 135368, guid: 1193d594ce3d8d14299230d01158e8e2, type: 2}
   canControl: 1
   moveable: 1
 --- !u!212 &21239710
@@ -226,6 +227,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 0771041ed9289ef48b65345606a3d39c,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: bloodSplat
+      value: 
+      objectReference: {fileID: 135368, guid: 1193d594ce3d8d14299230d01158e8e2, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 175776}
