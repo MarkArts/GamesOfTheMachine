@@ -18,9 +18,14 @@ public class PlatformerCharacter2D : MonoBehaviour
     private Animator m_Anim;            // Reference to the player's animator component.
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+	private SpriteRenderer m_renderer;
+
+	public GameObject bloodSplat;
 
 	public bool canControl;
 	public bool moveable = true;
+
+	private bool death = false;
 
 	//input
 	public InputComposite inputs = new InputComposite();
@@ -46,6 +51,7 @@ public class PlatformerCharacter2D : MonoBehaviour
         m_CeilingCheck = transform.Find("CeilingCheck");
         m_Anim = GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+		m_renderer = GetComponent<SpriteRenderer> ();
     }
 
 	void Update(){
@@ -136,4 +142,30 @@ public class PlatformerCharacter2D : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+	public void die(GameObject killer){
+		if (!death) {
+			this.onDeath (killer);
+		}
+	}
+
+	private void onDeath(GameObject killer){
+		death = true;
+
+		m_Rigidbody2D.isKinematic = true;
+		m_Rigidbody2D.velocity = Vector2.zero;
+		moveable = false;
+		speedX = 0f;
+
+		Instantiate (bloodSplat, transform.position, Quaternion.identity);
+
+		m_renderer.enabled = false;
+
+		Invoke("reset", 2f);
+	}
+
+	void reset(){
+		Application.LoadLevel(Application.loadedLevelName);
+	}
+
 }

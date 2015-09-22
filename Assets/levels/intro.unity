@@ -2229,7 +2229,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 409444, guid: 1072254d612608f4cb1f0d92416f0940, type: 2}
       propertyPath: m_RootOrder
-      value: 22
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 11464578, guid: 1072254d612608f4cb1f0d92416f0940, type: 2}
       propertyPath: canControl
