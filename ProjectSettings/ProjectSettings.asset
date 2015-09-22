@@ -125,7 +125,7 @@ PlayerSettings:
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: C:/Users/Mark/Documents/Unity/unityGravityGame/user.keystore
-  AndroidKeyaliasName: 
+  AndroidKeyaliasName: gamesofthemachine
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   androidEnableBanner: 0
