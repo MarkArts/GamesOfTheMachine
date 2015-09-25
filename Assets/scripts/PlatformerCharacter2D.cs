@@ -143,13 +143,15 @@ public class PlatformerCharacter2D : MonoBehaviour
         transform.localScale = theScale;
     }
 
-	public void die(GameObject killer){
+	public void die(GameObject killer, bool reset = true)
+    {
 		if (!death) {
-			this.onDeath (killer);
+			this.onDeath (killer, reset);
 		}
 	}
 
-	private void onDeath(GameObject killer){
+	private void onDeath(GameObject killer, bool reset = true)
+    {
 		death = true;
 
 		GameObject blood = (GameObject) Instantiate (bloodSplat, transform.position, Quaternion.identity);
@@ -163,12 +165,23 @@ public class PlatformerCharacter2D : MonoBehaviour
 
 		m_Rigidbody2D.isKinematic = true;
 		m_Rigidbody2D.velocity = Vector2.zero;
-		moveable = false;
+	//	moveable = false; this is troublesome in the ressurect because the level might say this should be false 
 		speedX = 0f;
 		m_renderer.enabled = false;
 
-		Invoke("reset", 4f);
+        if(reset)
+		    Invoke("reset", 4f);
 	}
+
+    public void resurrect(Vector2 position)
+    {
+        m_Rigidbody2D.isKinematic = false;
+        //   moveable = true;  this is troublesome because the level might say this should be false 
+        m_renderer.enabled = true;
+        m_Rigidbody2D.velocity = Vector2.zero;
+        transform.position = position;
+        death = false;
+    }
 
 	void reset(){
 		Application.LoadLevel(Application.loadedLevelName);

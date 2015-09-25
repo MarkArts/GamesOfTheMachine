@@ -48,7 +48,14 @@ public class BloodParticles : MonoBehaviour {
 			m_System = GetComponent<ParticleSystem>();
 		
 		if (m_Particles == null || m_Particles.Length < m_System.maxParticles)
-			m_Particles = new ParticleSystem.Particle[m_System.maxParticles]; 
+			m_Particles = new ParticleSystem.Particle[m_System.maxParticles];
+
+        Invoke("destroy", 5f);
 	}
+
+    void destroy()
+    {
+        Destroy(gameObject);
+    }
 
 }
