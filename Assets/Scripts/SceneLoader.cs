@@ -19,7 +19,7 @@ public class SceneLoader : MonoBehaviour {
 	{
 		if (other.tag == "Player") 
 		{
-			Application.LoadLevel (scene);
+            other.GetComponent<PlatformerCharacter2D>().switchLevel(scene);
 		}
 	}
 

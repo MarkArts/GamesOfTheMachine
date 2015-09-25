@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -57,11 +58,15 @@ public class PlatformerCharacter2D : MonoBehaviour
 		m_renderer = GetComponent<SpriteRenderer> ();
     }
 
+    private AnimatorStateInfo lastAnimeState;
 	void Update(){
-		// set the rotation of the player according to the current gravity
-		transform.rotation = Quaternion.AngleAxis (Gravity.angle(), new Vector3 (0, 0, 1));
 
-		// check if we are touching the ground
+        lastAnimeState = m_Anim.GetCurrentAnimatorStateInfo(0);
+
+        // set the rotation of the player according to the current gravity 
+        transform.rotation = Quaternion.AngleAxis (Gravity.angle(), new Vector3 (0, 0, 1));
+
+		// check if we are touching the ground 
 		m_Grounded = isGrounded();
 		m_Anim.SetBool("Ground", m_Grounded);
 
@@ -112,9 +117,13 @@ public class PlatformerCharacter2D : MonoBehaviour
 			m_Rigidbody2D.AddForce(Gravity.gravitize(new Vector2(0f, m_JumpForce)));
 		}
 
-
 		jump = false;
-	}
+
+        if (m_Anim.GetCurrentAnimatorStateInfo(0).IsName("entry"))
+        {
+            m_Rigidbody2D.velocity = Vector2.zero;
+        }
+    }
 
 	private bool canStand(){
 		return !Physics2D.OverlapCircle (m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround);
@@ -144,6 +153,18 @@ public class PlatformerCharacter2D : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public void switchLevel(String scene)
+    {
+        StartCoroutine(loadLevel(scene));
+    }
+
+    IEnumerator loadLevel(String scene)
+    {
+        yield return new WaitForSeconds(2f);
+
+        Application.LoadLevel(scene);
     }
 
 	public void die(GameObject killer, bool reset = true)
