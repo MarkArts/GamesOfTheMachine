@@ -17,7 +17,7 @@ public class IntroText : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!canStart) {
-			canStart = (Gravity.getOrientation() == Orientation.down);
+			canStart = (Gravity.getOrientation() == Orientation.up);
 			
 			if(canStart){
 				Invoke("timIsYourBestFreind", 2f);

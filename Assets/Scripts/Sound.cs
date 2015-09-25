@@ -8,6 +8,7 @@ public class Sound : MonoBehaviour {
 	private AudioSource m_sound;
 
 	public AudioClip[] sounds;
+    public bool mute;
 
 	void Awake(){
 		DontDestroyOnLoad (transform.gameObject);
@@ -27,12 +28,11 @@ public class Sound : MonoBehaviour {
 		currentLevel = Application.loadedLevelName;
 
 		if (!m_sound.isPlaying) {
-			Debug.Log (m_sound.isPlaying);
-
 			if(Application.loadedLevel + 1 <= sounds.Length)
 				m_sound.clip = sounds[Application.loadedLevel];
 
-			m_sound.Play();
+            if(!mute)
+			    m_sound.Play();
 		}
 	}
 

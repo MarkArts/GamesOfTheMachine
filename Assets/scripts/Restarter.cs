@@ -8,17 +8,8 @@ public class Restarter : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-			other.GetComponent<Rigidbody2D>().isKinematic = true;
-			other.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-			other.GetComponent<PlatformerCharacter2D>().moveable = false;
-			other.GetComponent<PlatformerCharacter2D>().speedX = 0f;
-
-			Invoke("reset", 1f);
+			PlatformerCharacter2D player = other.GetComponent<PlatformerCharacter2D>();
+			player.die(gameObject);
         }
     }
-
-	void reset(){
-		Application.LoadLevel(Application.loadedLevelName);
-	}
-
 }

@@ -43,20 +43,20 @@ public class Gravity : MonoBehaviour {
 
 			if(Mathf.Abs(x) < 0.5f){
 				// landscape
-				if(y > 0){
+				if(y < 0){
 					//reverse
 					return Orientation.up;
 				}
-				if(y < 0){
+				if(y > 0){
 					return Orientation.down;
 				}
 			}else{
 				// portrait
-				if(x < 0){
+				if(x > 0){
 					// reverse
 					return Orientation.left;
 				}
-				if(x > 0){
+				if(x < 0){
 					return Orientation.right;
 				}
 			}

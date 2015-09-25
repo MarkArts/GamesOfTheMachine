@@ -18,9 +18,14 @@ public class PlatformerCharacter2D : MonoBehaviour
     private Animator m_Anim;            // Reference to the player's animator component.
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+	private SpriteRenderer m_renderer;
+
+	public GameObject bloodSplat;
 
 	public bool canControl;
 	public bool moveable = true;
+
+	private bool death = false;
 
 	//input
 	public InputComposite inputs = new InputComposite();
@@ -46,6 +51,7 @@ public class PlatformerCharacter2D : MonoBehaviour
         m_CeilingCheck = transform.Find("CeilingCheck");
         m_Anim = GetComponent<Animator>();
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+		m_renderer = GetComponent<SpriteRenderer> ();
     }
 
 	void Update(){
@@ -136,4 +142,49 @@ public class PlatformerCharacter2D : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+	public void die(GameObject killer, bool reset = true)
+    {
+		if (!death) {
+			this.onDeath (killer, reset);
+		}
+	}
+
+	private void onDeath(GameObject killer, bool reset = true)
+    {
+		death = true;
+
+		GameObject blood = (GameObject) Instantiate (bloodSplat, transform.position, Quaternion.identity);
+
+		Vector2 v = m_Rigidbody2D.velocity;
+		if (v.magnitude > 4f) {
+			v = v.normalized * 4f;
+		}
+
+		blood.GetComponent<BloodParticles> ().initVelocity = v;
+
+		m_Rigidbody2D.isKinematic = true;
+		m_Rigidbody2D.velocity = Vector2.zero;
+	//	moveable = false; this is troublesome in the ressurect because the level might say this should be false 
+		speedX = 0f;
+		m_renderer.enabled = false;
+
+        if(reset)
+		    Invoke("reset", 4f);
+	}
+
+    public void resurrect(Vector2 position)
+    {
+        m_Rigidbody2D.isKinematic = false;
+        //   moveable = true;  this is troublesome because the level might say this should be false 
+        m_renderer.enabled = true;
+        m_Rigidbody2D.velocity = Vector2.zero;
+        transform.position = position;
+        death = false;
+    }
+
+	void reset(){
+		Application.LoadLevel(Application.loadedLevelName);
+	}
+
 }
