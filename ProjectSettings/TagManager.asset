@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Turret
   - Projectile
+  - Fire
   layers:
   - Default
   - TransparentFX

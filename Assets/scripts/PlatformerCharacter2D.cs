@@ -157,29 +157,42 @@ public class PlatformerCharacter2D : MonoBehaviour
     {
 		death = true;
 
-		GameObject blood = (GameObject) Instantiate (bloodSplat, transform.position, Quaternion.identity);
-
-		Vector2 v = m_Rigidbody2D.velocity;
-		if (v.magnitude > 4f) {
-			v = v.normalized * 4f;
-		}
-
-		blood.GetComponent<BloodParticles> ().initVelocity = v;
-
-        foreach(GameObject part in bodyParts)
+        if(killer.tag == "Fire")
         {
-            GameObject _part = (GameObject)Instantiate(part, transform.position, Quaternion.identity);
-            _part.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity * 0.5f;
+            m_Anim.SetTrigger("Burn");
+            m_MaxSpeed = 2.5f;
+
+            if (reset)
+                Invoke("reset", 1.1f);
         }
+        else
+        {
 
-        m_Rigidbody2D.isKinematic = true;
-		m_Rigidbody2D.velocity = Vector2.zero;
-		moveable = false;
-		speedX = 0f;
-		m_renderer.enabled = false;
+            GameObject blood = (GameObject)Instantiate(bloodSplat, transform.position, Quaternion.identity);
 
-        if(reset)
-		    Invoke("reset", 4f);
+            Vector2 v = m_Rigidbody2D.velocity;
+            if (v.magnitude > 4f)
+            {
+                v = v.normalized * 4f;
+            }
+
+            blood.GetComponent<BloodParticles>().initVelocity = v;
+
+            foreach (GameObject part in bodyParts)
+            {
+                GameObject _part = (GameObject)Instantiate(part, transform.position, Quaternion.identity);
+                _part.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity * 0.5f;
+            }
+
+            m_Rigidbody2D.isKinematic = true;
+            m_Rigidbody2D.velocity = Vector2.zero;
+            moveable = false;
+            speedX = 0f;
+            m_renderer.enabled = false;
+
+            if (reset)
+                Invoke("reset", 4f);
+        }
 	}
 
     public void resurrect(Vector2 position)
