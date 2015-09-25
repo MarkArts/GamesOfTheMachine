@@ -1736,15 +1736,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 407724, guid: 3498443f092b537478d23318324bae7a, type: 2}
       propertyPath: m_RootOrder
-      value: 19
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 169882, guid: 3498443f092b537478d23318324bae7a, type: 2}
       propertyPath: m_Name
       value: Platform5x01 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 407724, guid: 3498443f092b537478d23318324bae7a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: .649567008
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3498443f092b537478d23318324bae7a, type: 2}
