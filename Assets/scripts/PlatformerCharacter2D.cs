@@ -157,12 +157,13 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     public void switchLevel(String scene)
     {
+        m_Anim.SetTrigger("Teleport");
         StartCoroutine(loadLevel(scene));
     }
 
     IEnumerator loadLevel(String scene)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.1f);
 
         Application.LoadLevel(scene);
     }
