@@ -27,12 +27,15 @@ public class PlatformerCharacter2D : MonoBehaviour
 
 	private bool death = false;
 
+    public GameObject[] bodyParts;
+
 	//input
 	public InputComposite inputs = new InputComposite();
 	public bool jump { get; set; }
 	public bool jumping { get; private set; }
 	public bool crouch { get; set; }
 	public float speedX { get; set; }
+
 
 	void Start(){
 		inputs.addInput (new JumpInput ());
@@ -163,9 +166,15 @@ public class PlatformerCharacter2D : MonoBehaviour
 
 		blood.GetComponent<BloodParticles> ().initVelocity = v;
 
-		m_Rigidbody2D.isKinematic = true;
+        foreach(GameObject part in bodyParts)
+        {
+            GameObject _part = (GameObject)Instantiate(part, transform.position, Quaternion.identity);
+            _part.GetComponent<Rigidbody2D>().velocity = m_Rigidbody2D.velocity * 0.5f;
+        }
+
+        m_Rigidbody2D.isKinematic = true;
 		m_Rigidbody2D.velocity = Vector2.zero;
-	//	moveable = false; this is troublesome in the ressurect because the level might say this should be false 
+		moveable = false;
 		speedX = 0f;
 		m_renderer.enabled = false;
 
@@ -176,7 +185,7 @@ public class PlatformerCharacter2D : MonoBehaviour
     public void resurrect(Vector2 position)
     {
         m_Rigidbody2D.isKinematic = false;
-        //   moveable = true;  this is troublesome because the level might say this should be false 
+        moveable = true;
         m_renderer.enabled = true;
         m_Rigidbody2D.velocity = Vector2.zero;
         transform.position = position;

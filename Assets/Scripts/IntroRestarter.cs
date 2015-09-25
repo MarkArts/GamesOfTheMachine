@@ -35,6 +35,7 @@ public class IntroRestarter : MonoBehaviour {
         gravity.allowLeft = false;
 
         other.GetComponent<PlatformerCharacter2D>().resurrect(new Vector3(0.243f, -2.508f, 0));
+        other.GetComponent<PlatformerCharacter2D>().moveable = false;
 
 		if (deads == 1) {
 			introText.great();

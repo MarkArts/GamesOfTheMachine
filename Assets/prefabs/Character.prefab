@@ -58,8 +58,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .733296394, y: .275489688, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: .243000001, y: -2.5079999, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 450778}
   - {fileID: 490830}
@@ -165,10 +165,22 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Grounded: 1
+  m_Grounded: 0
   bloodSplat: {fileID: 135368, guid: 1193d594ce3d8d14299230d01158e8e2, type: 2}
   canControl: 1
   moveable: 1
+  bodyParts:
+  - {fileID: 173042, guid: e619ec2d4fad62549a6e141c31c5672d, type: 2}
+  - {fileID: 123950, guid: 93231493186439644a1d1c370980af3e, type: 2}
+  - {fileID: 164708, guid: f59919ce4e6f5874cbd1b72c2cd85021, type: 2}
+  - {fileID: 161298, guid: 43c8f8cdfe5abc34b836b30e651d4c20, type: 2}
+  - {fileID: 135718, guid: 92dfab3f9a8905045b5e90c31f2066d2, type: 2}
+  - {fileID: 181402, guid: c7dd08ae915a85b46b8d57274ec5a7d4, type: 2}
+  - {fileID: 177616, guid: 91d52d80816b43b4bb7b429fc7fb7ca0, type: 2}
+  - {fileID: 177616, guid: 91d52d80816b43b4bb7b429fc7fb7ca0, type: 2}
+  - {fileID: 135410, guid: a87e06e600bdf4e41b4797eeb29faec6, type: 2}
+  - {fileID: 190136, guid: 1e76853de92c03843be0e69ef5276775, type: 2}
+  - {fileID: 167848, guid: 0a1d72ab303012748bae4b7a4e1f9ce7, type: 2}
 --- !u!212 &21239710
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -231,6 +243,18 @@ Prefab:
       propertyPath: bloodSplat
       value: 
       objectReference: {fileID: 135368, guid: 1193d594ce3d8d14299230d01158e8e2, type: 2}
+    - target: {fileID: 0}
+      propertyPath: canControl
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: moveable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 175776}
