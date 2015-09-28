@@ -25,9 +25,6 @@ GameObject:
   - 4: {fileID: 425352}
   - 212: {fileID: 21234632}
   - 114: {fileID: 11423324}
-  - 50: {fileID: 5034068}
-  - 61: {fileID: 6122226}
-  - 61: {fileID: 6167200}
   m_Layer: 0
   m_Name: LasorTurret
   m_TagString: Turret
@@ -88,48 +85,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 425352}
   m_RootOrder: 1
---- !u!50 &5034068
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127846}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &6122226
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127846}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: .201507568, y: -.0537414551}
-  serializedVersion: 2
-  m_Size: {x: .440557659, y: .478793502}
---- !u!61 &6167200
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127846}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: -.214950562, y: .017906189}
-  serializedVersion: 2
-  m_Size: {x: .386817217, y: .219060257}
 --- !u!114 &11423324
 MonoBehaviour:
   m_ObjectHideFlags: 1

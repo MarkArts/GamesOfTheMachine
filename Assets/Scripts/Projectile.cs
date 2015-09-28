@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag != "Player" && other.tag != "Turret")
+        if (other.tag != "Player" && other.tag != "Turret" && other.tag != "Projectile")
         {
             Die();
         }

@@ -9,6 +9,7 @@ public class fire : MonoBehaviour {
 
 	public float onTime;
 	public float offTime;
+    public float offSet;
 
 	private void Awake()
 	{
@@ -16,22 +17,18 @@ public class fire : MonoBehaviour {
 		m_Anim = GetComponent<Animator>();
 		m_colider = GetComponent<BoxCollider2D> ();
 
-		this.startFire ();
+        Invoke("offsetWait", offSet);
 	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	void Update () {
-
-	}
+    void offsetWait(){
+        this.startFire();
+    }
 
 	void startFire(){
 		m_Anim.SetTrigger ("start");
 		Invoke ("enableCollision", 0.5f);;
 	}
+
 
 	void enableCollision(){
 		m_colider.enabled = true;
