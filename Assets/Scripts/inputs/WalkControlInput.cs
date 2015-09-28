@@ -8,9 +8,9 @@ public class WalkControlInput : InputBehaviour {
 		#if UNITY_IPHONE || UNITY_ANDROID
 		float angle = Gravity.tiltAngle();
 
-        if (angle > 0.15f)
+        if (angle > 0.10f)
             cha.speedX = -1f;
-        else if (angle < -0.15f)
+        else if (angle < -0.10f)
             cha.speedX = 1f;
         else
             cha.speedX = 0f;
