@@ -45,7 +45,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 437454}
   m_Layer: 0
-  m_Name: Fire
+  m_Name: fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTime: 5
   offTime: 3
+  offSet: 0
 --- !u!212 &21213246
 SpriteRenderer:
   m_ObjectHideFlags: 1
