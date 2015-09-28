@@ -63,7 +63,7 @@ public class Gravity : MonoBehaviour {
 	
 		#endif
 
-		return Orientation.down;
+		return Orientation.up;
 	}
 
 	public static float angle(){
