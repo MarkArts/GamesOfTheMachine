@@ -3,9 +3,19 @@ using System.Collections;
 
 public class Global : MonoBehaviour {
 
-    // Use this for initialization
-    void Start() {
-        DontDestroyOnLoad(gameObject);
+    public static Global instance;
+
+    void Awake()
+    {
+        if (instance)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
     }
 
     // Update is called once per frame
