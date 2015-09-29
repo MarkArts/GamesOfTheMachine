@@ -4,7 +4,6 @@ using System;
 
 public class LevelButton : Button
 {
-
     public string level;
 
     public override void onButtonPress()

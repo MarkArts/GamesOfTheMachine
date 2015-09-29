@@ -21,37 +21,17 @@ public abstract class Button : MonoBehaviour {
                 onButtonPress();
             }
         }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            if (m_box.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
-            {
-                onButtonPress();
-            }
-        }
-
     }
 
     public abstract void onButtonPress();
 
     bool didheTouchYou()
     {
-        return Input.touchCount > 0;
+        return Input.GetMouseButtonUp(0);
     }
 
     Vector2 whereDidHeTouchYou()
     {
-        Vector2 ret = Vector2.zero;
-
-        foreach (Touch touch in Input.touches)
-        {
-            if (touch.phase == TouchPhase.Ended)
-            {
-                return touch.position;
-            }
-        }
-
-        return ret;
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 }
