@@ -10,12 +10,23 @@ public class Sound : MonoBehaviour {
 	public AudioClip[] sounds;
     public bool mute;
 
-	void Awake(){
-		DontDestroyOnLoad (transform.gameObject);
-	}
+    public static Sound instance;
 
-	// Use this for initialization
-	void Start () {
+    void Awake()
+    {
+        if (instance)
+        {
+            DestroyImmediate(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+            instance = this;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		m_sound = GetComponent<AudioSource> ();
 	}
 	
