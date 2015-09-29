@@ -1,25 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class levelButton : MonoBehaviour {
-
-
-    public string level;
+public abstract class Button : MonoBehaviour {
 
     private BoxCollider2D m_box;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         m_box = GetComponent<BoxCollider2D>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (didheTouchYou())
         {
             if (m_box.OverlapPoint(whereDidHeTouchYou()))
             {
-                showMeOnTheDoll();
+                onButtonPress();
             }
         }
 
@@ -28,16 +27,13 @@ public class levelButton : MonoBehaviour {
             Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             if (m_box.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
             {
-                showMeOnTheDoll();
+                onButtonPress();
             }
         }
 
-	}
-
-    void showMeOnTheDoll()
-    {
-        Application.LoadLevel(level);
     }
+
+    public abstract void onButtonPress();
 
     bool didheTouchYou()
     {
@@ -48,9 +44,10 @@ public class levelButton : MonoBehaviour {
     {
         Vector2 ret = Vector2.zero;
 
-        foreach(Touch touch in Input.touches)
+        foreach (Touch touch in Input.touches)
         {
-            if(touch.phase == TouchPhase.Ended) {
+            if (touch.phase == TouchPhase.Ended)
+            {
                 return touch.position;
             }
         }

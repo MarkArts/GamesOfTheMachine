@@ -58,10 +58,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 		m_renderer = GetComponent<SpriteRenderer> ();
     }
 
-    private AnimatorStateInfo lastAnimeState;
 	void Update(){
-
-        lastAnimeState = m_Anim.GetCurrentAnimatorStateInfo(0);
 
         // set the rotation of the player according to the current gravity 
         transform.rotation = Quaternion.AngleAxis (Gravity.angle(), new Vector3 (0, 0, 1));
