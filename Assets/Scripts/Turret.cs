@@ -32,6 +32,7 @@ public class Turret : MonoBehaviour {
     void Shoot()
     {
         GameObject proj = (GameObject)Instantiate(projectile, spawn.position, Quaternion.identity);
+        proj.transform.Rotate(transform.rotation.eulerAngles);
         proj.GetComponent<Projectile>().speedX = bulletVelocity.x;
         proj.GetComponent<Projectile>().speedY = bulletVelocity.y;
     }
