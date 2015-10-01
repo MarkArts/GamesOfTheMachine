@@ -149,7 +149,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/Mark/Documents/Unity/unityGravityGame/user.keystore
+  AndroidKeystoreName: C:/Users/Mark/Documents/Unity/user.keystore
   AndroidKeyaliasName: 
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
