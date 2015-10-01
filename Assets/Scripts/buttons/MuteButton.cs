@@ -35,9 +35,6 @@ public class MuteButton : Button {
 
     public override void onButtonPress()
     {
-
-        Debug.Log(PlayerPrefs.GetInt("mute"));
-
         if (PlayerPrefs.GetInt("mute") == 1)
         {
             PlayerPrefs.SetInt("mute", 0);
