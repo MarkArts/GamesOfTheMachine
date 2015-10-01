@@ -8,7 +8,6 @@ public class Sound : MonoBehaviour {
 	private AudioSource m_sound;
 
 	public AudioClip[] sounds;
-    public bool mute;
 
     public static Sound instance;
 
@@ -32,6 +31,16 @@ public class Sound : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(PlayerPrefs.GetInt("mute", 0) == 1)
+        {
+            m_sound.mute = true;
+        }
+        else
+        {
+            m_sound.mute = false;
+        }
+
 		if(currentLevel != Application.loadedLevelName){
 			changeLevel(currentLevel, Application.loadedLevelName);
 		}
@@ -39,12 +48,11 @@ public class Sound : MonoBehaviour {
 		currentLevel = Application.loadedLevelName;
 
 		if (!m_sound.isPlaying) {
-			if(Application.loadedLevel + 1 <= sounds.Length)
-				m_sound.clip = sounds[Application.loadedLevel];
-
-            if(!mute)
-			    m_sound.Play();
-		}
+			if(Application.loadedLevel + 1 <= sounds.Length) {
+                m_sound.clip = sounds[Application.loadedLevel];
+                m_sound.Play();
+            }
+        }
 	}
 
 	void changeLevel(string currentLevel, string nextLevel){

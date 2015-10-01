@@ -9,6 +9,8 @@ public abstract class Button : MonoBehaviour {
     void Start()
     {
         m_box = GetComponent<BoxCollider2D>();
+
+        myStart();
     }
 
     // Update is called once per frame
@@ -21,9 +23,19 @@ public abstract class Button : MonoBehaviour {
                 onButtonPress();
             }
         }
+
+        fuckdate();
     }
 
     public abstract void onButtonPress();
+    public virtual void myStart()
+    {
+
+    }
+    public virtual void fuckdate()
+    {
+
+    }
 
     bool didheTouchYou()
     {
