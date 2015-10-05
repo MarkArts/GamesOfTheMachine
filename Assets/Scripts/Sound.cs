@@ -2,14 +2,29 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Sound : MonoBehaviour {
 
-	private string currentLevel;
+	private int currentLevel;
 	private AudioSource m_sound;
 
 	public AudioClip[] sounds;
-    public int[] playOnStart;
+
+    public int menuBegin;
+    public int menuEnd;
+
+    public int stageOneBegin;
+    public int stageOneEnd;
+
+    public int stageTwoBegin;
+    public int stageTwoEnd;
+
+    public int stageThreeBegin;
+    public int stageThreeEnd;
+
+    private IEnumerable<int>[] ranges;
+
 
     public static Sound instance;
 
@@ -23,6 +38,13 @@ public class Sound : MonoBehaviour {
         {
             DontDestroyOnLoad(gameObject);
             instance = this;
+
+            ranges = new IEnumerable<int>[4];
+
+            ranges[0] = Enumerable.Range(menuBegin, menuEnd);
+            ranges[1] = Enumerable.Range(stageOneBegin, stageOneEnd);
+            ranges[2] = Enumerable.Range(stageTwoBegin, stageTwoEnd);
+            ranges[3] = Enumerable.Range(stageThreeBegin, stageThreeEnd);
         }
     }
 
@@ -43,11 +65,11 @@ public class Sound : MonoBehaviour {
             m_sound.mute = false;
         }
 
-		if(currentLevel != Application.loadedLevelName){
-			changeLevel(currentLevel, Application.loadedLevelName);
+		if(currentLevel != Application.loadedLevel){
+			changeLevel(currentLevel, Application.loadedLevel);
 		}
 
-		currentLevel = Application.loadedLevelName;
+		currentLevel = Application.loadedLevel;
 
 		if (!m_sound.isPlaying) {
 			if(Application.loadedLevel + 1 <= sounds.Length) {
@@ -57,12 +79,17 @@ public class Sound : MonoBehaviour {
         }
 	}
 
-	void changeLevel(string currentLevel, string nextLevel){
-
-        if (Array.IndexOf(playOnStart, Application.loadedLevel) > -1)
+	void changeLevel(int currentLevel, int nextLevel){
+        if(!sameStage(currentLevel, nextLevel))
         {
             m_sound.clip = sounds[Application.loadedLevel];
             m_sound.Play();
         }
 	}
+
+    bool sameStage(int x, int y )
+    {
+        return ranges.Select(range => range.Contains(x) && range.Contains(y)).Any(r => r == true);
+    }
+
 }
