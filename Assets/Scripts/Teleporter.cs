@@ -10,6 +10,9 @@ public class Teleporter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         m_Anim = GetComponent<Animator>();
+
+        // TODO: maybe find a better place to keep track of levels unlocked;
+        PlayerPrefs.SetInt(Application.loadedLevelName, 1);
     }
 	
 	// Update is called once per frame

@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: level1_9
+  checkLevel: 1
 --- !u!212 &458338012
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -466,6 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: level1_1
+  checkLevel: 1
 --- !u!212 &521680818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -492,7 +494,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 19136394503099e4bb3e262794eac7d8, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: .854902029, g: .854902029, b: .854902029, a: 1}
 --- !u!4 &593960475
 Transform:
   m_ObjectHideFlags: 0
@@ -562,6 +564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: level1_6
+  checkLevel: 1
 --- !u!212 &682299614
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -646,6 +649,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: level1_2
+  checkLevel: 1
 --- !u!212 &821670800
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -742,6 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: level1_8
+  checkLevel: 1
 --- !u!212 &1117780044
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -892,6 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: level1_7
+  checkLevel: 1
 --- !u!212 &1412342646
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -964,6 +970,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: level1_5
+  checkLevel: 1
 --- !u!212 &1429451822
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1036,6 +1043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: level1_10
+  checkLevel: 1
 --- !u!212 &1615191344
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1108,6 +1116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: level1_4
+  checkLevel: 1
 --- !u!212 &1854037877
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1180,6 +1189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: level1_3
+  checkLevel: 1
 --- !u!212 &1865630388
 SpriteRenderer:
   m_ObjectHideFlags: 0
