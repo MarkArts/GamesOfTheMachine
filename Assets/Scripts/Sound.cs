@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,6 +9,7 @@ public class Sound : MonoBehaviour {
 	private AudioSource m_sound;
 
 	public AudioClip[] sounds;
+    public int[] playOnStart;
 
     public static Sound instance;
 
@@ -57,5 +59,10 @@ public class Sound : MonoBehaviour {
 
 	void changeLevel(string currentLevel, string nextLevel){
 
+        if (Array.IndexOf(playOnStart, Application.loadedLevel) > -1)
+        {
+            m_sound.clip = sounds[Application.loadedLevel];
+            m_sound.Play();
+        }
 	}
 }
