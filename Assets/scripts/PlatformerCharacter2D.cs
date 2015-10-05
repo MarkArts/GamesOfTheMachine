@@ -186,6 +186,8 @@ public class PlatformerCharacter2D : MonoBehaviour
     {
 		death = true;
 
+        PlayerPrefs.SetInt("deaths", PlayerPrefs.GetInt("deaths", 0) + 1);
+
         if(killer.tag == "Fire")
         {
             m_Anim.SetTrigger("Burn");
