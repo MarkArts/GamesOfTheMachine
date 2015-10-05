@@ -9,12 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 446222}
   - 212: {fileID: 21230932}
-  - 95: {fileID: 9589222}
   - 61: {fileID: 6137866}
   - 114: {fileID: 11417030}
   - 114: {fileID: 11430790}
   m_Layer: 0
-  m_Name: movingSaw
+  m_Name: ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,23 +73,6 @@ BoxCollider2D:
   m_Offset: {x: .240029335, y: -.0149941444}
   serializedVersion: 2
   m_Size: {x: .380097508, y: .220011711}
---- !u!95 &9589222
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 152118}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c7b0c74edac8c88429e5496c9b65d71b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11417030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,7 +120,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8470822674cc00149a94ba0d7c848126, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd5e7c163812fb54cb0feb5e75757d3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21265952
 SpriteRenderer:
@@ -172,7 +154,16 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fd5e7c163812fb54cb0feb5e75757d3f,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 152118}
