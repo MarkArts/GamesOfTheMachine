@@ -316,7 +316,7 @@ Prefab:
     - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
       propertyPath: sounds.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: 3cfe7e642ca424a46aa4f4f0891e3bfd, type: 3}
+      objectReference: {fileID: 8300000, guid: c975ab6d74ad94948a6537445179da60, type: 3}
     - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
       propertyPath: sounds.Array.data[2]
       value: 
@@ -369,6 +369,42 @@ Prefab:
       propertyPath: sounds.Array.data[11]
       value: 
       objectReference: {fileID: 8300000, guid: 902b8967d0e8d204d9afa2fd10a3cedd, type: 3}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: sounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c975ab6d74ad94948a6537445179da60, type: 3}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: menuEnd
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: stageOneBegin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: stageOneEnd
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: stageTwoBegin
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: stageTwoEnd
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: stageThreeBegin
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: stageThreeeEnd
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214564, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c975ab6d74ad94948a6537445179da60, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
   m_IsPrefabParent: 0
