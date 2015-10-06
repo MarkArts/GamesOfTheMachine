@@ -8,7 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/levels/menu/main.unity
   - enabled: 1
-    path: Assets/levels/menu/levelSelect.unity
+    path: Assets/levels/menu/levelSelect_1.unity
+  - enabled: 1
+    path: Assets/levels/menu/levelSelect_2.unity
+  - enabled: 1
+    path: Assets/levels/menu/levelSelect_3.unity
   - enabled: 1
     path: Assets/levels/intro.unity
   - enabled: 1
@@ -41,3 +45,13 @@ EditorBuildSettings:
     path: Assets/levels/thema2/level2_4.unity
   - enabled: 1
     path: Assets/levels/thema2/level2_5.unity
+  - enabled: 1
+    path: Assets/levels/thema2/level2_6.unity
+  - enabled: 1
+    path: Assets/levels/thema2/level2_7.unity
+  - enabled: 1
+    path: Assets/levels/thema2/level2_8.unity
+  - enabled: 1
+    path: Assets/levels/thema2/level2_9.unity
+  - enabled: 1
+    path: Assets/levels/thema2/level2_10.unity
