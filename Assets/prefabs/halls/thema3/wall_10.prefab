@@ -279,7 +279,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d31a654669356bc4d871caa509c35c82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d07bc8ab6e86bf84a8a6fe15e0c6aeda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21254008
 SpriteRenderer:
@@ -305,7 +305,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d31a654669356bc4d871caa509c35c82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d07bc8ab6e86bf84a8a6fe15e0c6aeda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21276156
 SpriteRenderer:
@@ -331,7 +331,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d31a654669356bc4d871caa509c35c82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d07bc8ab6e86bf84a8a6fe15e0c6aeda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21285562
 SpriteRenderer:
@@ -357,7 +357,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d31a654669356bc4d871caa509c35c82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d07bc8ab6e86bf84a8a6fe15e0c6aeda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21288002
 SpriteRenderer:
@@ -383,7 +383,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d31a654669356bc4d871caa509c35c82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d07bc8ab6e86bf84a8a6fe15e0c6aeda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
@@ -396,6 +396,11 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: 3626fe8e008014f6bbd19bb72937b311, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d07bc8ab6e86bf84a8a6fe15e0c6aeda,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129502}
