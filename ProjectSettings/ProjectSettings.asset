@@ -86,14 +86,14 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleIdentifier: com.Ludos.Timinator
-  bundleVersion: 1.6
+  bundleVersion: 1.8
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0
   virtualRealitySupported: 0
   productGUID: ff0ea2b5b7e8a3942967a7af9f3559cb
-  AndroidBundleVersionCode: 8
+  AndroidBundleVersionCode: 9
   AndroidMinSdkVersion: 16
   AndroidPreferredInstallLocation: 1
   aotOptions: 
