@@ -357,7 +357,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
       propertyPath: sounds.Array.size
-      value: 24
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
       propertyPath: playOnStart.Array.size
@@ -493,7 +493,7 @@ Prefab:
       objectReference: {fileID: 8300000, guid: c975ab6d74ad94948a6537445179da60, type: 3}
     - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
       propertyPath: stageThreeEnd
-      value: 24
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
       propertyPath: sounds.Array.data[13]
@@ -502,7 +502,7 @@ Prefab:
     - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
       propertyPath: sounds.Array.data[14]
       value: 
-      objectReference: {fileID: 8300000, guid: cd9e87fce7c4a60458d77bd62bc9f3dd, type: 3}
+      objectReference: {fileID: 8300000, guid: fd8fefc1cabd99140925ab267ca4ec17, type: 3}
     - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
       propertyPath: sounds.Array.data[15]
       value: 
@@ -510,7 +510,7 @@ Prefab:
     - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
       propertyPath: sounds.Array.data[16]
       value: 
-      objectReference: {fileID: 8300000, guid: 1248a755fc05f86459f25d7201ee7698, type: 3}
+      objectReference: {fileID: 8300000, guid: cd9e87fce7c4a60458d77bd62bc9f3dd, type: 3}
     - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
       propertyPath: sounds.Array.data[17]
       value: 
@@ -537,6 +537,34 @@ Prefab:
       objectReference: {fileID: 8300000, guid: 1248a755fc05f86459f25d7201ee7698, type: 3}
     - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
       propertyPath: sounds.Array.data[23]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1248a755fc05f86459f25d7201ee7698, type: 3}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: sounds.Array.data[24]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1248a755fc05f86459f25d7201ee7698, type: 3}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: sounds.Array.data[25]
+      value: 
+      objectReference: {fileID: 8300000, guid: d9bb36b2af9608b4c854a3c3e7a7fef4, type: 3}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: sounds.Array.data[26]
+      value: 
+      objectReference: {fileID: 8300000, guid: d9bb36b2af9608b4c854a3c3e7a7fef4, type: 3}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: sounds.Array.data[27]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1248a755fc05f86459f25d7201ee7698, type: 3}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: sounds.Array.data[28]
+      value: 
+      objectReference: {fileID: 8300000, guid: 654d50a9d933fd541916d6ac93202618, type: 3}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: sounds.Array.data[29]
+      value: 
+      objectReference: {fileID: 8300000, guid: d9bb36b2af9608b4c854a3c3e7a7fef4, type: 3}
+    - target: {fileID: 11471712, guid: 9aa09d97bd8d84e43a0880e443837f65, type: 2}
+      propertyPath: sounds.Array.data[30]
       value: 
       objectReference: {fileID: 8300000, guid: 1248a755fc05f86459f25d7201ee7698, type: 3}
     m_RemovedComponents: []
@@ -849,7 +877,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1546177882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,7 +1184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &2123269526
 GameObject:
   m_ObjectHideFlags: 0
