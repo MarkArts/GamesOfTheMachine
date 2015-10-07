@@ -3,13 +3,15 @@ using System.Collections;
 
 public class MovingFour : MonoBehaviour {
 
-
     public float speed;
+    public bool backtrack;
+    private bool backtracking;
 
     private Vector2 posOne;
     private Vector2 posTwo;
     private Vector2 posThree;
     private Vector2 posFour;
+
 
     // the position the object is currently moving towards
     private Vector2 targetPos;
@@ -17,6 +19,8 @@ public class MovingFour : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        backtracking = false;
+
         posOne = transform.position;
         posTwo = transform.FindChild("two").transform.position;
         posThree = transform.FindChild("three").transform.position;
@@ -44,23 +48,36 @@ public class MovingFour : MonoBehaviour {
     {
         if (targetPos == posOne)
         {
-            Debug.Log("postwo");
+            if (backtrack)
+            {
+                backtracking = false;
+            }
+
             targetPos = posTwo;
         }
         else if (targetPos == posTwo)
         {
-            Debug.Log("posThree");
-            targetPos = posThree;
+            if (backtrack && backtracking)
+                targetPos = posOne;
+            else
+                targetPos = posThree;
         }
         else if (targetPos == posThree)
         {
-            Debug.Log("posFour");
-            targetPos = posFour;
+            if (backtrack && backtracking)
+                targetPos = posTwo;
+            else
+                targetPos = posFour;
         }
         else if (targetPos == posFour)
         {
-            Debug.Log("posOne");
-            targetPos = posOne;
+            if (backtrack)
+            {
+                targetPos = posThree;
+                backtracking = true;
+            }
+            else
+                targetPos = posOne;
         }
     }
 }
