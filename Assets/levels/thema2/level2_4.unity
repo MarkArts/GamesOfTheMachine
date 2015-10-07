@@ -238,7 +238,7 @@ Transform:
   - {fileID: 1111083767}
   - {fileID: 74448766}
   m_Father: {fileID: 1860573279}
-  m_RootOrder: 43
+  m_RootOrder: 5
 --- !u!212 &17568029
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1960,7 +1960,7 @@ Transform:
   - {fileID: 1226796948}
   - {fileID: 202757842}
   m_Father: {fileID: 643438494}
-  m_RootOrder: 43
+  m_RootOrder: 5
 --- !u!212 &300841742
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3438,7 +3438,7 @@ Transform:
   - {fileID: 629851537}
   - {fileID: 1543868366}
   m_Father: {fileID: 1029609042}
-  m_RootOrder: 42
+  m_RootOrder: 4
 --- !u!212 &470113600
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8360,7 +8360,7 @@ Transform:
   - {fileID: 210602349}
   - {fileID: 582178871}
   m_Father: {fileID: 1029609042}
-  m_RootOrder: 43
+  m_RootOrder: 5
 --- !u!212 &1218242353
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9265,7 +9265,7 @@ Transform:
   - {fileID: 1272490603}
   - {fileID: 913071696}
   m_Father: {fileID: 952293818}
-  m_RootOrder: 42
+  m_RootOrder: 4
 --- !u!212 &1314690501
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10442,11 +10442,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 437454, guid: bb5d5533e99fb2f4584f833980892a6a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.50000095
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 437454, guid: bb5d5533e99fb2f4584f833980892a6a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 14.1999979
+      value: 6.15999985
       objectReference: {fileID: 0}
     - target: {fileID: 437454, guid: bb5d5533e99fb2f4584f833980892a6a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11155,7 +11155,7 @@ Transform:
   - {fileID: 88699496}
   - {fileID: 2044940696}
   m_Father: {fileID: 1860573279}
-  m_RootOrder: 42
+  m_RootOrder: 4
 --- !u!212 &1675139317
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12172,7 +12172,7 @@ Transform:
   - {fileID: 955819668}
   - {fileID: 1030024438}
   m_Father: {fileID: 643438494}
-  m_RootOrder: 42
+  m_RootOrder: 4
 --- !u!212 &1847955879
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12873,7 +12873,7 @@ Transform:
   - {fileID: 1097088876}
   - {fileID: 1801919114}
   m_Father: {fileID: 952293818}
-  m_RootOrder: 43
+  m_RootOrder: 5
 --- !u!212 &1940114139
 SpriteRenderer:
   m_ObjectHideFlags: 0
